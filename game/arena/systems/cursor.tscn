@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dlrygy5kje2lw"]
+
+[ext_resource type="Texture2D" uid="uid://bfo6ke5jyw0nx" path="res://assets/cursor.png" id="1_ue2vk"]
+
+[node name="Cursor" type="Node2D" unique_id=578248985]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=597743188]
+texture = ExtResource("1_ue2vk")

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://eiihecjskqse"]
+
+[ext_resource type="Texture2D" uid="uid://dtv20rlt6c8rt" path="res://assets/tower.png" id="1_rkjb2"]
+
+[sub_resource type="Animation" id="Animation_dkuk1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yywu0"]
+resource_name = "deploy"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.36602157, 3.2490087),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gq2mb"]
+_data = {
+&"RESET": SubResource("Animation_dkuk1"),
+&"deploy": SubResource("Animation_yywu0")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ani4k"]
+atlas = ExtResource("1_rkjb2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4aov2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ani4k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tower" type="Node2D" unique_id=912578742]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=413631712]
+libraries/ = SubResource("AnimationLibrary_gq2mb")
+autoplay = &"deploy"
+
+[node name="Sprite" type="Node2D" parent="." unique_id=440352967]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite" unique_id=1151933272]
+sprite_frames = SubResource("SpriteFrames_4aov2")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dpsuv6we1f8qg"]
+
+[ext_resource type="Script" uid="uid://dpwsgjpkva7tk" path="res://game/arena/level.gd" id="1_0qfhh"]
+[ext_resource type="PackedScene" uid="uid://eiihecjskqse" path="res://game/arena/tower/tower.tscn" id="2_0uly8"]
+[ext_resource type="Texture2D" uid="uid://3un2priug2t" path="res://assets/background.png" id="2_j73ub"]
+
+[node name="Level" type="Node2D" unique_id=1676619216]
+script = ExtResource("1_0qfhh")
+
+[node name="Environment" type="Node2D" parent="." unique_id=1174963438]
+
+[node name="Background" type="Sprite2D" parent="Environment" unique_id=1048145640]
+texture_repeat = 2
+position = Vector2(581, 327)
+texture = ExtResource("2_j73ub")
+region_enabled = true
+region_rect = Rect2(0, 0, 1164, 648)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1591228043]
+
+[node name="EnemyRoot" type="Node2D" parent="." unique_id=1004082331]
+
+[node name="ProjectileRoot" type="Node2D" parent="." unique_id=1253573761]
+
+[node name="VFXRoot" type="Node2D" parent="." unique_id=1768155390]
+
+[node name="Tower" parent="." unique_id=912578742 instance=ExtResource("2_0uly8")]
+position = Vector2(576, 324)
